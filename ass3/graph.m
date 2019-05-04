@@ -10,8 +10,8 @@ function []=graph()
   % 
   % Written by S Darcy
 
-  high = 2.5
-  low = -0.5
+  high = 3
+  low = -1
 
   % Close any open figures
   close all;
@@ -31,8 +31,8 @@ function []=graph()
   
   % Plot the function
   plot(x,y), hold on
-  plot(x,y1), hold on
-  plot(x,y2), hold on
+  %plot(x,y1), hold on
+  %plot(x,y2), hold on
 
   plot(x,zeros(size(x)),'g-');
   plot(zeros(size(x)),x,'g-');
