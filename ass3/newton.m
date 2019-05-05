@@ -1,4 +1,4 @@
-function Xs=newton(fun,Xest,tol,imax)
+function Xs=newton(p,Xest,tol,imax)
   % function to run the newton-rhapson method to solve an equation numerically
   %
   % Syntax:   Xs=newton(fun,Xest,tol,imax)
@@ -15,17 +15,20 @@ function Xs=newton(fun,Xest,tol,imax)
   % Written by S Darcy
 
 
-% newton
-for i=1:imax
-  %Xi = Xest - feval(fun[1],Xest)/feval(fun[2],Xest);
-  [F,D]=feval(fun,Xest);
-  Xi = Xest - F./D;
-  if abs(Xi - Xest)/Xest < tol
-    Xs = Xi;
-    break
+  % newton
+  for i=1:imax
+    [fg J] = tasktwo(Xest,p);
+    Dx = -J\fg;
+    Xi = Xest + Dx;
+    if abs(Xi - Xest)/Xest < tol
+      Xs = Xi;
+      break
+    end
+    Xest = Xi;
   end
-  Xest = Xi;
+  if i == imax
+    error('solution did not converge')
+  end
+  Xs = Xi;
 end
-if i == imax
-  error('solution did not converge')
-end
+

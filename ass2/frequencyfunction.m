@@ -1,10 +1,11 @@
-function [y dydx]=frequencyfunction(inx)
+function [x y J]=frequencyfunction(inx, iny)
   % frequency function for vibration of a uniform beam clamped at one end: cos(B)cosh(B) = 1
   %
   % Syntax    []=frequencyfunction(inx)
   %
   % Inputs:
-  %   inx - vector of values to call function on
+  %   inx - X value 
+  %   iny - Y value
   %
   % Outputs:
   %   y - result at input
