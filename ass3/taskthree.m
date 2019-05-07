@@ -1,3 +1,12 @@
+% script to find the intersection of the two functions at a single point for p
+%
+% Syntax    taskthree()
+%
+% Inputs Nil
+%
+% Outputs Nil
+% 
+% Written by S Darcy
 
 leftroot = [0.5;0.5];
 rightroot = [3;1];

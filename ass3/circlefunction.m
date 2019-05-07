@@ -1,14 +1,16 @@
 function [x y]=circlefunction(a,b,ang)
-  % frequency function for vibration of a uniform beam clamped at one end: cos(B)cosh(B) = 1
+  % function to draw a generic elipse, taking the a and b values from the canonical form and returning the x and y values at a certain angle
   %
-  % Syntax    []=frequencyfunction(inx)
+  % Syntax    []=circlefunction(a, b, ang)
   %
   % Inputs:
-  %   inx - vector of values to call function on
+  %   a - elipse function canonical variable
+  %   b - elipse function canonical variable
+  %   ang - the angle from the origin to solve the points for
   %
   % Outputs:
-  %   y - result at input
-  %   dydx - derivative of result at input
+  %   x - resulting x coordinate 
+  %   y - resulting y coordinate 
   % 
   % Written by S Darcy
   %

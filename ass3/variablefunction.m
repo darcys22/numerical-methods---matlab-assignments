@@ -1,14 +1,14 @@
 function [y]=variablefunction(inx, inp)
-  % frequency function for vibration of a uniform beam clamped at one end: cos(B)cosh(B) = 1
+  % function to solve the function y = x^2 - 2x + p 
   %
-  % Syntax    []=frequencyfunction(inx)
+  % Syntax    []=variablefunction(inx, inp)
   %
   % Inputs:
-  %   inx - vector of values to call function on
+  %   inx - value for x in the function 
+  %   inp - value for p in the function 
   %
   % Outputs:
   %   y - result at input
-  %   dydx - derivative of result at input
   % 
   % Written by S Darcy
   %

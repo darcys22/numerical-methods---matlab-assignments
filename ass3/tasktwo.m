@@ -1,15 +1,15 @@
 function [fg J]=tasktwo(xy, p)
-  % frequency function for vibration of a uniform beam clamped at one end: cos(B)cosh(B) = 1
+  % function to provide the solutions two the two functions at their respective X,Y and P pointss aswell as calculate the Jacobian for the two functions
   %
-  % Syntax    []=frequencyfunction(inx)
+  % Syntax    [fg J]=tasktwo(xy, p)
   %
   % Inputs:
-  %   inx - X value 
-  %   iny - Y value
+  %   xy - vector of the x and the y 
+  %   p - p value for the function y = x^2 - 2x + p
   %
   % Outputs:
-  %   y - result at input
-  %   dydx - derivative of result at input
+  %   fg - result at input x,y and p
+  %   J - Jacobian at input x,y
   % 
   % Written by S Darcy
 

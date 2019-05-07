@@ -1,3 +1,12 @@
+% script to find the intersection of the two functions, iterating through various values of p
+%
+% Syntax    taskfour()
+%
+% Inputs Nil
+%
+% Outputs Nil
+% 
+% Written by S Darcy
 
 leftroot = [0.5;0.5];
 rightroot = [3;1];
