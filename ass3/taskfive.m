@@ -1,32 +1,45 @@
+% script to find the intersection of the two functions, simultaneously solving through various values of p
+%
+% Syntax    taskfive()
+%
+% Inputs Nil
+%
+% Outputs Nil
+% 
+% Written by S Darcy
 
-Xest = [[0.5;0.5],[3;1]];
-p = linspace(0,2,3);
+Xest = [0.5;0.5];
+p = linspace(-1,2,4);
 tol = 1e-13;
 imax = 500;
 
-xy = Xest(:,2)
-x=xy(1); y=xy(2);
 
-J=[2*x 18*y 2-2*x 1];
-bigJ = reshape(repmat(J,size(p)), [4 3]);
 
-f=repmat([x^2+9*y^2-16],size(p))
-g=[y-x^2+2*x-p]
-fg = transpose([f;g])
+for i=1:imax
+  x=Xest(1); y=Xest(2);
+  J=[2*x 18*y 2-2*x 1];
+  bigJ = reshape(repmat(J,size(p)), [4 4]);
 
-%for i=1:imax
+  j_det = transpose(bigJ(1,:).*bigJ(4,:) - bigJ(2,:).*bigJ(3,:));
 
-%[fg J] = tasktwo(Xest,p)
-%Dx = -J\fg;
-%Xi = Xest + Dx;
-%if abs(Xi - Xest)/Xest < tol
-  %Xs = Xi;
-  %break
-%end
-%Xest = Xi;
+  x = ones(4,1);
+  a_det = det(bigJ);
+  for i = 1:4
+    C = bigJ;
+    C(:,i) = j_det;
+    x(i,1) = det(C)/a_det;
+  end
 
-%end
-%if i == imax
-  %error('solution did not converge')
-%end
-%Xs = Xi;
+  Xi = Xest - inv(bigJ) .* x
+
+  if abs(Xi - Xest)/Xest < tol
+    Xs = Xi;
+    break
+  end
+  Xest = Xi;
+
+end
+if i == imax
+  error('solution did not converge')
+end
+Xs = Xi;
