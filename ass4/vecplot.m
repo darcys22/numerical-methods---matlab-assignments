@@ -1,5 +1,5 @@
 function [vd,dd]=vecplot(fname)
-  % function to extract the data from provided filename
+  % function to extract the aircraft drag data from provided file
   % will graph the drag against the velocity 
   % will return the velocity and velocity in separate vectors
   %

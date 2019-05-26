@@ -1,16 +1,16 @@
 function [P condition]=leastSquares(X,Y,N)
-  % function to draw a generic elipse, taking the a and b values from the canonical form and returning the x and y values at a certain angle
+  % function to calculate the least squares curve fitting algorithm over the provided X and Y data, will return the coefficients of a polynomial of degree N and the condition number of the system.
   %
-  % Syntax [P S]=leastSquares(X,Y,N)
+  % Syntax [P condition]=leastSquares(X,Y,N)
   %
   % Inputs:
-  %   X - elipse function canonical variable
-  %   Y - elipse function canonical variable
-  %   N - the angle from the origin to solve the points for
+  %   X - vector of the X value Data
+  %   Y - vector of the Y value Data
+  %   N - degrees of the polynomial being fitted
   %
   % Outputs:
-  %   P - resulting x coordinate 
-  %   condition - resulting y coordinate 
+  %   P - resulting vector of coefficients for the polynomial 
+  %   condition - condition number of the system
   % 
   % Written by S Darcy
   
@@ -30,6 +30,10 @@ function [P condition]=leastSquares(X,Y,N)
 
   P=(M'*M)\(M'*Y);
   condition = cond(M'*M);
+
+  if condition >= 1000
+    warning("System is badly conditioned")
+  end
   
 
 end
